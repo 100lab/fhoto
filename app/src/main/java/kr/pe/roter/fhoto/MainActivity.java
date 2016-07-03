@@ -386,6 +386,10 @@ public class MainActivity extends Activity {
 	}
 
 
+
+
+	// 이미지 클릭시 변경해야 할 정보들을 담고 있음
+	DefaultTextContainer mContainer = null;
 	/**
 	 * 이미지 클릭시 발생하는 이벤트 제어
 	 * @return
@@ -408,6 +412,16 @@ public class MainActivity extends Activity {
 						//이 경우 다이얼로그를 띄워준다.
 						LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 						final LinearLayout linear = (LinearLayout)inflater.inflate(R.layout.dialog_newdesk01, null);
+						final EditText etName = (EditText)linear.findViewById(R.id.d_newdesk01_name);
+						final EditText etJob = (EditText)linear.findViewById(R.id.d_newdesk01_job);
+						final EditText etMessage = (EditText)linear.findViewById(R.id.d_newdesk01_message);
+
+						if (mContainer == null)
+							mContainer = new DefaultTextContainer();
+
+						etName.setText(mContainer.getName());
+						etJob.setText(mContainer.getJob());
+						etMessage.setText(mContainer.getMessage());
 
 						AlertDialog dlg = new AlertDialog.Builder(MainActivity.this)
 								.setTitle("뉴스데스크")
@@ -417,17 +431,12 @@ public class MainActivity extends Activity {
 									@Override
 									public void onClick(DialogInterface dialog, int which) {
 
-										DefaultTextContainer container = new DefaultTextContainer();
-										final EditText etName = (EditText)linear.findViewById(R.id.d_newdesk01_name);
-										final EditText etJob = (EditText)linear.findViewById(R.id.d_newdesk01_job);
-										final EditText etMessage = (EditText)linear.findViewById(R.id.d_newdesk01_message);
-
-										container.setName(etName.getText().toString());
-										container.setJob(etJob.getText().toString());
-										container.setMessage(etMessage.getText().toString());
+										mContainer.setName(etName.getText().toString());
+										mContainer.setJob(etJob.getText().toString());
+										mContainer.setMessage(etMessage.getText().toString());
 
 										//mGalleryAdapter.putNewsdesk01Container(container);
-										mGalleryAdapter.putContainer(position, container);
+										mGalleryAdapter.putContainer(position, mContainer);
 										//mGalleryList.setAdapter(mGalleryAdapter);
 										mGalleryList.refreshDrawableState();
 									}
@@ -443,6 +452,19 @@ public class MainActivity extends Activity {
 						LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 						final LinearLayout linear = (LinearLayout)inflater.inflate(R.layout.diaog_human01, null);
 
+						if (mContainer == null)
+							mContainer = new DefaultTextContainer();
+
+						final EditText etName = (EditText)linear.findViewById(R.id.d_human01_name);
+						final EditText etJob = (EditText)linear.findViewById(R.id.d_human01_job);
+						final EditText etAge = (EditText)linear.findViewById(R.id.d_human01_age);
+						final EditText etMessage = (EditText)linear.findViewById(R.id.d_human01_message);
+
+						etName.setText(mContainer.getName());
+						etJob.setText(mContainer.getJob());
+						etAge.setText(mContainer.getAge());
+						etMessage.setText(mContainer.getMessage());
+
 						AlertDialog dlg = new AlertDialog.Builder(MainActivity.this)
 								.setTitle("인간극장")
 								.setView(linear)
@@ -451,19 +473,14 @@ public class MainActivity extends Activity {
 									@Override
 									public void onClick(DialogInterface dialog, int which) {
 
-										DefaultTextContainer container = new DefaultTextContainer();
-										final EditText etName = (EditText)linear.findViewById(R.id.d_human01_name);
-										final EditText etJob = (EditText)linear.findViewById(R.id.d_human01_job);
-										final EditText etAge = (EditText)linear.findViewById(R.id.d_human01_age);
-										final EditText etMessage = (EditText)linear.findViewById(R.id.d_human01_message);
 
-										container.setName(etName.getText().toString());
-										container.setJob(etJob.getText().toString());
-										container.setAge(etAge.getText().toString());
-										container.setMessage(etMessage.getText().toString());
+										mContainer.setName(etName.getText().toString());
+										mContainer.setJob(etJob.getText().toString());
+										mContainer.setAge(etAge.getText().toString());
+										mContainer.setMessage(etMessage.getText().toString());
 
 										//mGalleryAdapter.putHuman01Container(container);
-										mGalleryAdapter.putContainer(position, container);
+										mGalleryAdapter.putContainer(position, mContainer);
 										mGalleryList.setAdapter(mGalleryAdapter);
 										//Log.v(TAG,"ASDASD1");
 										//Bitmap bitmap = FhotoBitmapFactory.makeNewsdesk01(MainActivity.this, mLoadedPhoto, container); //MBC뉴스
@@ -481,6 +498,12 @@ public class MainActivity extends Activity {
 						//이 경우 다이얼로그를 띄워준다.
 						LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 						final LinearLayout linear = (LinearLayout)inflater.inflate(R.layout.dialog_movie01, null);
+						if (mContainer == null)
+							mContainer = new DefaultTextContainer();
+
+						final EditText etMessage = (EditText)linear.findViewById(R.id.d_movie01_message);
+						mContainer.setMessage(etMessage.getText().toString());
+						etMessage.setText(mContainer.getMessage());
 
 						AlertDialog dlg = new AlertDialog.Builder(MainActivity.this)
 								.setTitle("영화")
@@ -490,15 +513,8 @@ public class MainActivity extends Activity {
 									@Override
 									public void onClick(DialogInterface dialog, int which) {
 
-										DefaultTextContainer container = new DefaultTextContainer();
-
-
-
-										final EditText etMessage = (EditText)linear.findViewById(R.id.d_movie01_message);
-										container.setMessage(etMessage.getText().toString());
-
 										//mGalleryAdapter.putMovie01Container(container);
-										mGalleryAdapter.putContainer(position, container);
+										mGalleryAdapter.putContainer(position, mContainer);
 										//mGalleryList.setAdapter(mGalleryAdapter);
 										mGalleryList.refreshDrawableState();
 									}
@@ -516,6 +532,14 @@ public class MainActivity extends Activity {
 						LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 						final LinearLayout linear = (LinearLayout)inflater.inflate(R.layout.diaog_hwasung01, null);
 
+
+						if (mContainer == null)
+							mContainer = new DefaultTextContainer();
+						final EditText etRough = (EditText)linear.findViewById(R.id.d_hwasung01_roughintro);
+						final EditText etDetail = (EditText)linear.findViewById(R.id.d_hwasung01_detailintro);
+						etRough.setText(mContainer.getRoughIntro());
+						etDetail.setText(mContainer.getDetailIntro());
+
 						AlertDialog dlg = new AlertDialog.Builder(MainActivity.this)
 								.setTitle("화성인바이러스")
 								.setView(linear)
@@ -524,15 +548,12 @@ public class MainActivity extends Activity {
 									@Override
 									public void onClick(DialogInterface dialog, int which) {
 
-										DefaultTextContainer container = new DefaultTextContainer();
 
-										final EditText etRough = (EditText)linear.findViewById(R.id.d_hwasung01_roughintro);
-										container.setRoughIntro(etRough.getText().toString());
-										final EditText etDetail = (EditText)linear.findViewById(R.id.d_hwasung01_detailintro);
-										container.setDetailIntro(etDetail.getText().toString());
+										mContainer.setRoughIntro(etRough.getText().toString());
+										mContainer.setDetailIntro(etDetail.getText().toString());
 
 										//mGalleryAdapter.putHwasung01Container(container);
-										mGalleryAdapter.putContainer(position, container);
+										mGalleryAdapter.putContainer(position, mContainer);
 										mGalleryList.refreshDrawableState();
 									}
 								})
@@ -549,6 +570,15 @@ public class MainActivity extends Activity {
 						LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 						final LinearLayout linear = (LinearLayout)inflater.inflate(R.layout.diaog_lifegosu01, null);
 
+						if (mContainer == null)
+							mContainer = new DefaultTextContainer();
+
+						final EditText etRough = (EditText)linear.findViewById(R.id.d_lifegosu01_roughintro);
+						final EditText etMessage = (EditText)linear.findViewById(R.id.d_lifegosu01_interview);
+
+						etRough.setText(mContainer.getRoughIntro());
+						etMessage.setText(mContainer.getMessage());
+
 						AlertDialog dlg = new AlertDialog.Builder(MainActivity.this)
 								.setTitle("동상이몽")
 								.setView(linear)
@@ -557,15 +587,12 @@ public class MainActivity extends Activity {
 									@Override
 									public void onClick(DialogInterface dialog, int which) {
 
-										DefaultTextContainer container = new DefaultTextContainer();
 
-										final EditText etRough = (EditText)linear.findViewById(R.id.d_lifegosu01_roughintro);
-										container.setRoughIntro(etRough.getText().toString());
-										final EditText etMessage = (EditText)linear.findViewById(R.id.d_lifegosu01_interview);
-										container.setMessage(etMessage.getText().toString());
+										mContainer.setRoughIntro(etRough.getText().toString());
+										mContainer.setMessage(etMessage.getText().toString());
 
 										//mGalleryAdapter.putLifegosu01Container(container);
-										mGalleryAdapter.putContainer(position, container);
+										mGalleryAdapter.putContainer(position, mContainer);
 										mGalleryList.refreshDrawableState();
 									}
 								})
@@ -584,6 +611,16 @@ public class MainActivity extends Activity {
 						LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 						final LinearLayout linear = (LinearLayout)inflater.inflate(R.layout.diaog_lifegosu01, null);
 
+						if (mContainer == null)
+							mContainer = new DefaultTextContainer();
+
+						final EditText etRough = (EditText)linear.findViewById(R.id.d_lifegosu01_roughintro);
+						final EditText etMessage = (EditText)linear.findViewById(R.id.d_lifegosu01_interview);
+						etRough.setText(mContainer.getRoughIntro());
+						etMessage.setText(mContainer.getMessage());
+
+
+
 						AlertDialog dlg = new AlertDialog.Builder(MainActivity.this)
 								.setTitle("슈퍼맨이 돌아왔다")
 								.setView(linear)
@@ -592,15 +629,12 @@ public class MainActivity extends Activity {
 									@Override
 									public void onClick(DialogInterface dialog, int which) {
 
-										DefaultTextContainer container = new DefaultTextContainer();
 
-										final EditText etRough = (EditText)linear.findViewById(R.id.d_lifegosu01_roughintro);
-										container.setRoughIntro(etRough.getText().toString());
-										final EditText etMessage = (EditText)linear.findViewById(R.id.d_lifegosu01_interview);
-										container.setMessage(etMessage.getText().toString());
+										mContainer.setRoughIntro(etRough.getText().toString());
+										mContainer.setMessage(etMessage.getText().toString());
 
 										//mGalleryAdapter.putLifegosu01Container(container);
-										mGalleryAdapter.putContainer(position, container);
+										mGalleryAdapter.putContainer(position, mContainer);
 										mGalleryList.refreshDrawableState();
 									}
 								})
@@ -617,6 +651,15 @@ public class MainActivity extends Activity {
 						LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 						final LinearLayout linear = (LinearLayout)inflater.inflate(R.layout.diaog_lifegosu01, null);
 
+						if (mContainer == null)
+							mContainer = new DefaultTextContainer();
+
+						final EditText etRough = (EditText)linear.findViewById(R.id.d_lifegosu01_roughintro);
+						final EditText etMessage = (EditText)linear.findViewById(R.id.d_lifegosu01_interview);
+						etRough.setText(mContainer.getRoughIntro());
+						etMessage.setText(mContainer.getMessage());
+
+
 						AlertDialog dlg = new AlertDialog.Builder(MainActivity.this)
 								.setTitle("안녕하세요")
 								.setView(linear)
@@ -625,15 +668,12 @@ public class MainActivity extends Activity {
 									@Override
 									public void onClick(DialogInterface dialog, int which) {
 
-										DefaultTextContainer container = new DefaultTextContainer();
 
-										final EditText etRough = (EditText)linear.findViewById(R.id.d_lifegosu01_roughintro);
-										container.setRoughIntro(etRough.getText().toString());
-										final EditText etMessage = (EditText)linear.findViewById(R.id.d_lifegosu01_interview);
-										container.setMessage(etMessage.getText().toString());
+										mContainer.setRoughIntro(etRough.getText().toString());
+										mContainer.setMessage(etMessage.getText().toString());
 
 										//mGalleryAdapter.putLifegosu01Container(container);
-										mGalleryAdapter.putContainer(position, container);
+										mGalleryAdapter.putContainer(position, mContainer);
 										mGalleryList.refreshDrawableState();
 									}
 								})
@@ -650,6 +690,16 @@ public class MainActivity extends Activity {
 						LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 						final LinearLayout linear = (LinearLayout)inflater.inflate(R.layout.diaog_lifegosu01, null);
 
+						if (mContainer == null)
+							mContainer = new DefaultTextContainer();
+
+						final EditText etRough = (EditText)linear.findViewById(R.id.d_lifegosu01_roughintro);
+						final EditText etMessage = (EditText)linear.findViewById(R.id.d_lifegosu01_interview);
+						etRough.setText(mContainer.getRoughIntro());
+						etMessage.setText(mContainer.getMessage());
+
+
+
 						AlertDialog dlg = new AlertDialog.Builder(MainActivity.this)
 								.setTitle("생활의달인")
 								.setView(linear)
@@ -658,15 +708,12 @@ public class MainActivity extends Activity {
 									@Override
 									public void onClick(DialogInterface dialog, int which) {
 
-										DefaultTextContainer container = new DefaultTextContainer();
 
-										final EditText etRough = (EditText)linear.findViewById(R.id.d_lifegosu01_roughintro);
-										container.setRoughIntro(etRough.getText().toString());
-										final EditText etMessage = (EditText)linear.findViewById(R.id.d_lifegosu01_interview);
-										container.setMessage(etMessage.getText().toString());
+										mContainer.setRoughIntro(etRough.getText().toString());
+										mContainer.setMessage(etMessage.getText().toString());
 
 										//mGalleryAdapter.putLifegosu01Container(container);
-										mGalleryAdapter.putContainer(position, container);
+										mGalleryAdapter.putContainer(position, mContainer);
 										mGalleryList.refreshDrawableState();
 									}
 								})
@@ -684,6 +731,15 @@ public class MainActivity extends Activity {
 						LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 						final LinearLayout linear = (LinearLayout)inflater.inflate(R.layout.dialog_mate01, null);
 
+						if (mContainer == null)
+							mContainer = new DefaultTextContainer();
+
+						final RadioGroup rgGender = (RadioGroup)linear.findViewById(R.id.d_mate01_radiogroup_gender);
+						final EditText etMessage = (EditText)linear.findViewById(R.id.d_mate01_dt_message);
+
+						etMessage.setText(mContainer.getMessage());
+
+
 						AlertDialog dlg = new AlertDialog.Builder(MainActivity.this)
 								.setTitle("짝 대화")
 								.setView(linear)
@@ -692,23 +748,17 @@ public class MainActivity extends Activity {
 									@Override
 									public void onClick(DialogInterface dialog, int which) {
 
-										DefaultTextContainer container = new DefaultTextContainer();
-
-										final RadioGroup rgGender = (RadioGroup)linear.findViewById(R.id.d_mate01_radiogroup_gender);
 
 										//남여 체크
 										if(rgGender.getCheckedRadioButtonId() == R.id.d_mate01_radio_man)
-											container.setGender(0);
+											mContainer.setGender(0);
 										else
-											container.setGender(1);
+											mContainer.setGender(1);
 
-
-
-										final EditText etMessage = (EditText)linear.findViewById(R.id.d_mate01_dt_message);
-										container.setMessage(etMessage.getText().toString());
+										mContainer.setMessage(etMessage.getText().toString());
 
 										//mGalleryAdapter.putMate01Container(container);
-										mGalleryAdapter.putContainer(position, container);
+										mGalleryAdapter.putContainer(position, mContainer);
 										mGalleryList.refreshDrawableState();
 									}
 								})

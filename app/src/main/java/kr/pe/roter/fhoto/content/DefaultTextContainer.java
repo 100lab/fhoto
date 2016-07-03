@@ -2,13 +2,13 @@ package kr.pe.roter.fhoto.content;
 
 public class DefaultTextContainer {
 
-	private String mName = "이름";
-	private String mJob = "직업";
-	private String mAge = "7";
-	private String mMessage = "수정하시려면 클릭하세요";
+	private String mName = "";
+	private String mJob = "";
+	private String mAge = "";
+	private String mMessage = "";
 	private int mGender = 0;
-	private String mRoughIntro = "간략 소개";
-	private String mDetailIntro = "상세 소개";
+	private String mRoughIntro = "";
+	private String mDetailIntro = "";
 
 
 	public DefaultTextContainer() {
