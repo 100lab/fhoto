@@ -3,3 +3,4 @@
 *.iml
 app/build/
 build/
+*.apk
