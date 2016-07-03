@@ -543,6 +543,107 @@ public class MainActivity extends Activity {
 
 						dlg.show();
 					}
+					//동상이몽
+					else if( position == FhotoGalleryAdapter.fhoto_content_samedream ){
+						//이 경우 다이얼로그를 띄워준다.
+						LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+						final LinearLayout linear = (LinearLayout)inflater.inflate(R.layout.diaog_lifegosu01, null);
+
+						AlertDialog dlg = new AlertDialog.Builder(MainActivity.this)
+								.setTitle("동상이몽")
+								.setView(linear)
+								.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+
+									@Override
+									public void onClick(DialogInterface dialog, int which) {
+
+										DefaultTextContainer container = new DefaultTextContainer();
+
+										final EditText etRough = (EditText)linear.findViewById(R.id.d_lifegosu01_roughintro);
+										container.setRoughIntro(etRough.getText().toString());
+										final EditText etMessage = (EditText)linear.findViewById(R.id.d_lifegosu01_interview);
+										container.setMessage(etMessage.getText().toString());
+
+										//mGalleryAdapter.putLifegosu01Container(container);
+										mGalleryAdapter.putContainer(position, container);
+										mGalleryList.refreshDrawableState();
+									}
+								})
+								.setNegativeButton("취소", null)
+
+
+								.create();
+
+
+
+						dlg.show();
+					}
+					// 슈퍼맨이돌아왔다
+					else if( position == FhotoGalleryAdapter.fhoto_content_superman ){
+						//이 경우 다이얼로그를 띄워준다.
+						LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+						final LinearLayout linear = (LinearLayout)inflater.inflate(R.layout.diaog_lifegosu01, null);
+
+						AlertDialog dlg = new AlertDialog.Builder(MainActivity.this)
+								.setTitle("슈퍼맨이 돌아왔다")
+								.setView(linear)
+								.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+
+									@Override
+									public void onClick(DialogInterface dialog, int which) {
+
+										DefaultTextContainer container = new DefaultTextContainer();
+
+										final EditText etRough = (EditText)linear.findViewById(R.id.d_lifegosu01_roughintro);
+										container.setRoughIntro(etRough.getText().toString());
+										final EditText etMessage = (EditText)linear.findViewById(R.id.d_lifegosu01_interview);
+										container.setMessage(etMessage.getText().toString());
+
+										//mGalleryAdapter.putLifegosu01Container(container);
+										mGalleryAdapter.putContainer(position, container);
+										mGalleryList.refreshDrawableState();
+									}
+								})
+								.setNegativeButton("취소", null)
+								.create();
+
+
+
+						dlg.show();
+					}
+					//안녕하세요
+					else if( position == FhotoGalleryAdapter.fhoto_content_sayhello ){
+						//이 경우 다이얼로그를 띄워준다.
+						LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+						final LinearLayout linear = (LinearLayout)inflater.inflate(R.layout.diaog_lifegosu01, null);
+
+						AlertDialog dlg = new AlertDialog.Builder(MainActivity.this)
+								.setTitle("안녕하세요")
+								.setView(linear)
+								.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+
+									@Override
+									public void onClick(DialogInterface dialog, int which) {
+
+										DefaultTextContainer container = new DefaultTextContainer();
+
+										final EditText etRough = (EditText)linear.findViewById(R.id.d_lifegosu01_roughintro);
+										container.setRoughIntro(etRough.getText().toString());
+										final EditText etMessage = (EditText)linear.findViewById(R.id.d_lifegosu01_interview);
+										container.setMessage(etMessage.getText().toString());
+
+										//mGalleryAdapter.putLifegosu01Container(container);
+										mGalleryAdapter.putContainer(position, container);
+										mGalleryList.refreshDrawableState();
+									}
+								})
+								.setNegativeButton("취소", null)
+
+
+								.create();
+
+						dlg.show();
+					}
 					//생활의 달인
 					else if( position == FhotoGalleryAdapter.fhoto_content_lifegosu ){
 						//이 경우 다이얼로그를 띄워준다.
@@ -576,6 +677,7 @@ public class MainActivity extends Activity {
 
 						dlg.show();
 					}
+
 					//짝 대화
 					else if( position == FhotoGalleryAdapter.fhoto_content_mate01 ){
 						//이 경우 다이얼로그를 띄워준다.

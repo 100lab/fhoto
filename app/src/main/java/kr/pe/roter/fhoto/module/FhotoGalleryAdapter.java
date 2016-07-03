@@ -42,6 +42,9 @@ public class FhotoGalleryAdapter extends BaseAdapter {
 	//상수. 갤러리 순서대로 값을 갖는다.
 	public static int fhoto_content_null = -1;
 	public static int fhoto_content_index = 0;
+	public static final int fhoto_content_samedream = fhoto_content_index++;
+	public static final int fhoto_content_superman = fhoto_content_index++;
+	public static final int fhoto_content_sayhello = fhoto_content_index++;
 	public static final int fhoto_content_mate01 = fhoto_content_index++;
 	public static final int fhoto_content_mudo01 = fhoto_content_index++;
 	public static final int fhoto_content_newsdesk01 = fhoto_content_index++;
@@ -103,11 +106,14 @@ public class FhotoGalleryAdapter extends BaseAdapter {
 			mThumbnailContent[fhoto_content_mudo01] = FhotoBitmapFactory.makeMudo01(context, mThumbnail); //무한도전
 			mThumbnailContent[fhoto_content_newsdesk01] = FhotoBitmapFactory.makeNewsdesk01(context, mThumbnail, null); //MBC뉴스
 			mThumbnailContent[fhoto_content_bene] = FhotoBitmapFactory.makeBene(context, mThumbnail);
-			mThumbnailContent[fhoto_content_humancinema] = FhotoBitmapFactory.makeHumanCinema(context, mThumbnail,null);
+			mThumbnailContent[fhoto_content_humancinema] = FhotoBitmapFactory.makeHumanCinema(context, mThumbnail, null);
 			mThumbnailContent[fhoto_content_movie] = FhotoBitmapFactory.makeMovie01(context, mThumbnail, null);
 			mThumbnailContent[fhoto_content_hwasung] = FhotoBitmapFactory.makeHwasung(context, mThumbnail, null);
 			mThumbnailContent[fhoto_content_lifegosu] = FhotoBitmapFactory.makeLifeGosu(context, mThumbnail, null);
+			mThumbnailContent[fhoto_content_samedream] = FhotoBitmapFactory.makeLifeGosu(context, mThumbnail, null);
 			mThumbnailContent[fhoto_content_mate01] = FhotoBitmapFactory.makeMate01(context, mThumbnail, null);
+			mThumbnailContent[fhoto_content_superman] = FhotoBitmapFactory.makeSuperman(context, mThumbnail, null);
+			mThumbnailContent[fhoto_content_sayhello] = FhotoBitmapFactory.makeSayHello(context, mThumbnail, null);
 		} catch(OutOfMemoryError e){
 			e.printStackTrace();
 		}
@@ -308,6 +314,18 @@ public class FhotoGalleryAdapter extends BaseAdapter {
 		else if(pos == fhoto_content_mudo01){
 			bitmap = FhotoBitmapFactory.makeMudo01(mContext, mOrgPhoto);
 		}
+		//안녕하세요
+		else if(pos == fhoto_content_sayhello){
+			bitmap = FhotoBitmapFactory.makeSayHello(mContext, mOrgPhoto, container);
+		}
+		//슈퍼맨이돌아왔다
+		else if(pos == fhoto_content_superman){
+			bitmap = FhotoBitmapFactory.makeSuperman(mContext, mOrgPhoto, container);
+		}
+		//동상이몽
+		else if (pos == fhoto_content_samedream){
+			bitmap = FhotoBitmapFactory.makeSameDream(mContext, mOrgPhoto, container);
+		}
 		//MBC뉴스
 		else if(pos == fhoto_content_newsdesk01){
 			bitmap = FhotoBitmapFactory.makeNewsdesk01(mContext, mOrgPhoto, container);
@@ -318,7 +336,7 @@ public class FhotoGalleryAdapter extends BaseAdapter {
 		}
 		//인간극장
 		else if(pos == fhoto_content_humancinema){
-			bitmap = FhotoBitmapFactory.makeHumanCinema(mContext, mOrgPhoto,container);
+			bitmap = FhotoBitmapFactory.makeHumanCinema(mContext, mOrgPhoto, container);
 		}
 		//영화
 		else if(pos == fhoto_content_movie){

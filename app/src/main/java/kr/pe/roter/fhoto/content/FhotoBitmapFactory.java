@@ -605,7 +605,7 @@ public class FhotoBitmapFactory {
 		canvas.drawBitmap(photo, 0, 0,null);
 		canvas.drawBitmap(hwasung_logo, hwasungX, hwasungY, null);
 		canvas.drawBitmap(tvn_logo, tvnX, tvnY, null);
-		canvas.drawBitmap(hwasung_lyrics, 0,lyricsY, null);
+		canvas.drawBitmap(hwasung_lyrics, 0, lyricsY, null);
 		//canvas.drawText("바보바보바보야", 30, 30, paint);
 
 
@@ -796,7 +796,7 @@ public class FhotoBitmapFactory {
 
 
 		Canvas canvas = new Canvas(background);
-		canvas.drawBitmap(photo, 0, 0,null);
+		canvas.drawBitmap(photo, 0, 0, null);
 		canvas.drawBitmap(mate_logo, logoX, logoY, null);
 		canvas.drawBitmap(mate_sbs, mbcX, mbcY, null);
 
@@ -871,4 +871,296 @@ public class FhotoBitmapFactory {
 
 
 
+	/**
+	 * 동상이몽 테마 생성
+	 * @param context
+	 * @param photo
+	 * @param container
+	 * @return
+	 */
+	public static Bitmap makeSameDream(Context context, Bitmap photo, DefaultTextContainer container){
+
+		int backgroundW = photo.getWidth();
+		int backgroundH = photo.getHeight();
+
+		int longValue = Math.max(backgroundW, backgroundH);
+		Bitmap background = Bitmap.createBitmap(backgroundW,backgroundH,Bitmap.Config.ARGB_8888);
+		Bitmap samedream_logo = FhotoUtils.resizeElement(((BitmapDrawable)context.getResources().getDrawable(R.drawable.dream_logo)).getBitmap(),backgroundW,0.4);
+		Bitmap sbs_logo = FhotoUtils.resizeElement(((BitmapDrawable)context.getResources().getDrawable(R.drawable.sbs_logo)).getBitmap(),longValue,0.1);
+
+		int imgW = photo.getWidth();
+		int imgH = photo.getHeight();
+
+		int lifegosuX = imgW/20;
+		int lifegosuY = imgH/15;
+
+		int sbsX = imgW*8/10;
+		int sbsY = imgH/10;
+
+		int lyricsY = (int) (imgH*85/100.0);
+
+		Canvas canvas = new Canvas(background);
+		canvas.drawBitmap(photo, 0, 0,null);
+		canvas.drawBitmap(samedream_logo, lifegosuX, lifegosuY, null);
+		canvas.drawBitmap(sbs_logo, sbsX, sbsY, null);
+
+
+
+
+
+		float fontSize = samedream_logo.getHeight()*1/4;
+		Paint paint = new Paint();
+		paint.setAntiAlias(true);
+		paint.setTextSize(fontSize);
+		Typeface typeface = Typeface.createFromAsset(context.getAssets(), "NanumGothicBold.ttf");
+		paint.setTypeface(Typeface.create(typeface, Typeface.BOLD));
+
+
+		String roughIntro = "고오급 시계에 빠진 남친";
+		String message = "자막을 넣으시려면 이미지를 클릭하세요";
+
+		if(container!=null){
+			Log.v(TAG,"ASDASDASDASDASDJW-------------");
+			roughIntro = container.getRoughIntro();
+			message = container.getMessage();
+		}
+
+
+
+		//소개
+		int introX = lifegosuX + (int)(90*samedream_logo.getWidth()/240.0);
+		int introY = lifegosuY + (int)(samedream_logo.getHeight() * 51 / 86.0);
+		canvas.drawText(roughIntro, introX, introY, paint);
+
+		//메세지 시작
+		fontSize = samedream_logo.getHeight()/2;
+		paint.setTextSize(fontSize);
+		ArrayList<String> arrText;
+		arrText = inputEnterIntoText(paint,message,(int)(imgW-fontSize*5));
+
+		paint.setTextAlign(Align.CENTER);
+		paint.setColor(Color.BLACK);
+
+		paint.setAntiAlias(true);
+		paint.setStyle(Paint.Style.STROKE);
+		paint.setColor(Color.WHITE);
+		paint.setStrokeWidth((float) 5);
+
+
+
+		int arrSize = arrText.size();
+		for(int i = 0;i <= arrSize-1;i++){
+			canvas.drawText(arrText.get(i), imgW/2, lyricsY + i*(fontSize*5/4), paint);
+		}
+
+		paint.setColor(Color.BLACK);
+		paint.setStyle(Paint.Style.FILL);
+		for(int i = 0;i <= arrSize-1;i++){
+			canvas.drawText(arrText.get(i), imgW/2, lyricsY + i*(fontSize*5/4), paint);
+		}
+		//메세지 끝
+
+
+
+		return background;
+
+	}
+
+
+	/**
+	 * 슈퍼맨이돌아왔다 테마 생성
+	 * @param context
+	 * @param photo
+	 * @param container
+	 * @return
+	 */
+	public static Bitmap makeSuperman(Context context, Bitmap photo, DefaultTextContainer container){
+
+		int backgroundW = photo.getWidth();
+		int backgroundH = photo.getHeight();
+
+		int longValue = Math.max(backgroundW, backgroundH);
+		Bitmap background = Bitmap.createBitmap(backgroundW,backgroundH,Bitmap.Config.ARGB_8888);
+		Bitmap superman_logo = FhotoUtils.resizeElement(((BitmapDrawable)context.getResources().getDrawable(R.drawable.superman_logo)).getBitmap(),backgroundW,0.2);
+		Bitmap sbs_logo = FhotoUtils.resizeElement(((BitmapDrawable)context.getResources().getDrawable(R.drawable.kbs2_logo)).getBitmap(),longValue,0.1);
+
+		int imgW = photo.getWidth();
+		int imgH = photo.getHeight();
+
+		int lifegosuX = imgW/20;
+		int lifegosuY = imgH/15;
+
+		int sbsX = imgW*8/10;
+		int sbsY = imgH/10;
+
+		int lyricsY = (int) (imgH*85/100.0);
+
+		Canvas canvas = new Canvas(background);
+		canvas.drawBitmap(photo, 0, 0,null);
+		canvas.drawBitmap(superman_logo, lifegosuX, lifegosuY, null);
+		canvas.drawBitmap(sbs_logo, sbsX, sbsY, null);
+
+
+
+
+
+		float fontSize = superman_logo.getHeight()*1/3;
+		Paint paint = new Paint();
+		paint.setAntiAlias(true);
+		paint.setTextSize(fontSize);
+		Typeface typeface = Typeface.createFromAsset(context.getAssets(), "NanumGothicBold.ttf");
+		paint.setTypeface(Typeface.create(typeface, Typeface.BOLD));
+
+
+		String roughIntro = "중박이네";
+		String message = "까까 사달란 말예요 까까";
+
+		if(container!=null){
+			Log.v(TAG,"ASDASDASDASDASDJW-------------");
+			roughIntro = container.getRoughIntro();
+			message = container.getMessage();
+		}
+
+
+
+		//소개
+		int introX = lifegosuX + (int)(superman_logo.getWidth()*100/240.0);
+		int introY = lifegosuY + (int)(superman_logo.getHeight() * 51 / 91.0);
+		canvas.drawText(roughIntro, introX, introY, paint);
+
+		//메세지 시작
+		fontSize = superman_logo.getHeight()/2;
+		paint.setTextSize(fontSize);
+		ArrayList<String> arrText;
+		arrText = inputEnterIntoText(paint,message,(int)(imgW-fontSize*5));
+
+		paint.setTextAlign(Align.CENTER);
+		paint.setColor(Color.BLACK);
+
+		paint.setAntiAlias(true);
+		paint.setStyle(Paint.Style.STROKE);
+		paint.setColor(Color.WHITE);
+		paint.setStrokeWidth((float) 5);
+
+
+
+		int arrSize = arrText.size();
+		for(int i = 0;i <= arrSize-1;i++){
+			canvas.drawText(arrText.get(i), imgW/2, lyricsY + i*(fontSize*5/4), paint);
+		}
+
+		paint.setColor(Color.BLACK);
+		paint.setStyle(Paint.Style.FILL);
+		for(int i = 0;i <= arrSize-1;i++){
+			canvas.drawText(arrText.get(i), imgW/2, lyricsY + i*(fontSize*5/4), paint);
+		}
+		//메세지 끝
+
+
+
+		return background;
+
+	}
+
+
+	/**
+	 * 안녕하세요 테마 생성
+	 * @param context
+	 * @param photo
+	 * @param container
+	 * @return
+	 */
+	public static Bitmap makeSayHello(Context context, Bitmap photo, DefaultTextContainer container){
+
+		int backgroundW = photo.getWidth();
+		int backgroundH = photo.getHeight();
+
+		int longValue = Math.max(backgroundW, backgroundH);
+		Bitmap background = Bitmap.createBitmap(backgroundW, backgroundH, Bitmap.Config.ARGB_8888);
+		Bitmap superman_logo = FhotoUtils.resizeElement(((BitmapDrawable) context.getResources().getDrawable(R.drawable.sayhello_logo)).getBitmap(), backgroundW, 0.4);
+		Bitmap sbs_logo = FhotoUtils.resizeElement(((BitmapDrawable)context.getResources().getDrawable(R.drawable.kbs2_logo)).getBitmap(),longValue,0.1);
+
+		int imgW = photo.getWidth();
+		int imgH = photo.getHeight();
+
+		int lifegosuX = imgW/20;
+		int lifegosuY = imgH/15;
+
+		int sbsX = imgW*8/10;
+		int sbsY = imgH/10;
+
+		int lyricsY = (int) (imgH*85/100.0);
+
+		Canvas canvas = new Canvas(background);
+		canvas.drawBitmap(photo, 0, 0,null);
+		canvas.drawBitmap(superman_logo, lifegosuX, lifegosuY, null);
+		canvas.drawBitmap(sbs_logo, sbsX, sbsY, null);
+
+
+
+
+
+		float fontSize = superman_logo.getHeight()*1/4;
+		Paint paint = new Paint();
+		paint.setAntiAlias(true);
+		paint.setTextSize(fontSize);
+		Typeface typeface = Typeface.createFromAsset(context.getAssets(), "NanumGothicBold.ttf");
+		paint.setTypeface(Typeface.create(typeface, Typeface.BOLD));
+
+
+		String roughIntro = "게임에 중독된 아빠";
+		String message = "게임좀 그만했으면 좋겠어요!";
+
+		if(container!=null){
+			Log.v(TAG,"ASDASDASDASDASDJW-------------");
+			roughIntro = container.getRoughIntro();
+			message = container.getMessage();
+		}
+
+
+
+		//소개
+		int introX = lifegosuX + (int)(superman_logo.getWidth()/5);
+		int introY = lifegosuY + (int)(superman_logo.getHeight() * 14 / 30);
+		canvas.drawText(roughIntro, introX, introY, paint);
+
+		//메세지 시작
+		fontSize = superman_logo.getHeight()/2;
+		paint.setTextSize(fontSize);
+		ArrayList<String> arrText;
+		arrText = inputEnterIntoText(paint,message,(int)(imgW-fontSize*5));
+
+		paint.setTextAlign(Align.CENTER);
+		paint.setColor(Color.BLACK);
+
+		paint.setAntiAlias(true);
+		paint.setStyle(Paint.Style.STROKE);
+		paint.setColor(Color.WHITE);
+		paint.setStrokeWidth((float) 5);
+
+
+
+		int arrSize = arrText.size();
+		for(int i = 0;i <= arrSize-1;i++){
+			canvas.drawText(arrText.get(i), imgW/2, lyricsY + i*(fontSize*5/4), paint);
+		}
+
+		paint.setColor(Color.BLACK);
+		paint.setStyle(Paint.Style.FILL);
+		for(int i = 0;i <= arrSize-1;i++){
+			canvas.drawText(arrText.get(i), imgW/2, lyricsY + i*(fontSize*5/4), paint);
+		}
+		//메세지 끝
+
+
+
+		return background;
+
+	}
+
+
 }
+
+
+
+
