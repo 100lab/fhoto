@@ -1,0 +1,142 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    
+
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".MainActivity" >
+
+    
+    
+    <!-- 광고영역 시작 -->
+
+    <LinearLayout 
+        android:id="@+id/a_main_ll_ad" 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+         <!--
+        <net.daum.adam.publisher.AdView
+        android:id="@+id/a_main_ad_adam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        clientId = "4959Z07T13db4e2437e"
+        requestInterval="12"/>
+         -->
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/a_main_ad_admob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id">
+        </com.google.android.gms.ads.AdView>
+
+        <!--
+        <com.google.ads.AdView
+            android:id="@+id/a_main_ad_admob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            ads:adSize="BANNER"
+            ads:adUnitId="a151551b67c657d"
+            ads:loadAdOnCreate="true"/>
+         -->
+    </LinearLayout>
+    <!-- clientId="4959Z07T13db4e2437e" -->
+    <!-- clientId = "TestClientId" -->
+	<!-- 광고영역 끝 -->
+     
+    
+    <!-- 본문 시작 -->
+    <LinearLayout 
+        android:id="@+id/a_main_ll_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/a_main_ll_ad"
+        android:layout_above="@+id/a_main_ll_bottom_menu"
+        android:background="#505050"
+        android:orientation="vertical"
+        >
+        <Gallery 
+            android:id="@+id/a_main_gallery_list"
+            android:background="#444444"
+            android:layout_width="fill_parent"
+            android:layout_height="80dip"
+            android:spacing="5dip"/>
+        <FrameLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <TextView 
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:gravity="center"
+	            android:text="꾸꾸방송합성을 사랑해주셔서 감사합니다^_^\n사진 방향이 안맞는 분들은 스마트폰 왼쪽 하단 메뉴키를\n길게 누르시면 방향 전환이 가능합니다."
+	            />
+            <ImageView
+	            android:id="@+id/a_main_iv_content"
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            />
+        </FrameLayout>
+
+
+
+    </LinearLayout>
+    <!-- 본문 끝 -->
+
+
+    <!-- 하단 버튼 시작 -->
+    <LinearLayout
+        android:id="@+id/a_main_ll_bottom_menu"
+        android:layout_width="fill_parent"
+        android:layout_height="80dip"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:background="#111111"
+        >
+        <Button
+            android:id="@+id/a_main_btn_take_photo"
+            android:layout_width="0dip" 
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_margin="0dip"
+            android:background="#000000ff"
+            android:textColor="@drawable/btn_bottom_menu_color"
+            android:drawableTop="@drawable/ic_menu_camera"
+            android:text="@string/take_photo"/>
+        <Button 
+            android:id="@+id/a_main_btn_load_photo"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_margin="0dip"
+            android:background="#000000ff"
+            android:textColor="@drawable/btn_bottom_menu_color"
+            android:drawableTop="@drawable/ic_menu_archive"
+            android:text="@string/load_photo"/>
+        <Button 
+            android:id="@+id/a_main_btn_save_photo"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_margin="0dip"
+            android:background="#000000ff"
+            android:textColor="@drawable/btn_bottom_menu_color"
+            android:drawableTop="@drawable/ic_menu_save"
+            android:text="@string/save_photo"/>
+        <Button 
+            android:id="@+id/a_main_btn_share"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_margin="0dip"
+            android:background="#000000ff"
+            android:textColor="@drawable/btn_bottom_menu_color"
+            android:drawableTop="@drawable/ic_menu_share"
+            android:text="@string/share"/>
+    </LinearLayout>
+    <!-- 하단 버튼 끝 -->
+
+</RelativeLayout>

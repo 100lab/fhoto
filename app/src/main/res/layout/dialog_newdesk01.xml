@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    	
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:orientation="horizontal">
+        <TextView 
+            android:layout_width="50dip"
+            android:layout_height="fill_parent"
+            android:text="이름"/>
+        <EditText 
+            android:id="@+id/d_newdesk01_name"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:singleLine="true"/>
+    </LinearLayout>
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:orientation="horizontal">
+        <TextView 
+            android:layout_width="50dip"
+            android:layout_height="fill_parent"
+            android:text="직업"/>
+        <EditText 
+            android:id="@+id/d_newdesk01_job"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:singleLine="true"/>
+    </LinearLayout>    
+	<LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:orientation="horizontal">
+        <TextView 
+            android:layout_width="50dip"
+            android:layout_height="fill_parent"
+            android:text="인터뷰"/>
+        <EditText 
+            android:id="@+id/d_newdesk01_message"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:singleLine="true"/>
+    </LinearLayout>
+    
+    
+    
+</LinearLayout>

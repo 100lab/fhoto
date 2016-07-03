@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "686471067128",
+    "firebase_url": "https://admob-app-id-8704366281.firebaseio.com",
+    "project_id": "admob-app-id-8704366281",
+    "storage_bucket": "admob-app-id-8704366281.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686471067128:android:da3cc6e82338a694",
+        "android_client_info": {
+          "package_name": "kr.pe.roter.fhoto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "686471067128-l23mvvu82jhtrolrja66fn93sjif6c55.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByHz9MMTebNrjg9p3Br-6TyL9F1_CDDYk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

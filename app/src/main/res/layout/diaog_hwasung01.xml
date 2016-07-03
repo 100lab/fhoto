@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    	
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:orientation="horizontal">
+        <TextView 
+            android:layout_width="50dip"
+            android:layout_height="fill_parent"
+            android:text="간략소개"/>
+        <EditText 
+            android:id="@+id/d_hwasung01_roughintro"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:singleLine="true"/>
+    </LinearLayout>
+    
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:orientation="horizontal">
+        <TextView 
+            android:layout_width="50dip"
+            android:layout_height="fill_parent"
+            android:text="이름 및 상세소개"/>
+        <EditText 
+            android:id="@+id/d_hwasung01_detailintro"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:singleLine="true"/>
+    </LinearLayout>    
+	
+</LinearLayout>
