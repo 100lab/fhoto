@@ -42,15 +42,15 @@ public class FhotoGalleryAdapter extends BaseAdapter {
 	//상수. 갤러리 순서대로 값을 갖는다.
 	public static int fhoto_content_null = -1;
 	public static int fhoto_content_index = 0;
+	public static final int fhoto_content_newsdesk01 = fhoto_content_index++;
+	public static final int fhoto_content_bene = fhoto_content_index++;
+	public static final int fhoto_content_humancinema = fhoto_content_index++;
+	public static final int fhoto_content_movie = fhoto_content_index++;
 	public static final int fhoto_content_samedream = fhoto_content_index++;
 	public static final int fhoto_content_superman = fhoto_content_index++;
 	public static final int fhoto_content_sayhello = fhoto_content_index++;
 	public static final int fhoto_content_mate01 = fhoto_content_index++;
 	public static final int fhoto_content_mudo01 = fhoto_content_index++;
-	public static final int fhoto_content_newsdesk01 = fhoto_content_index++;
-	public static final int fhoto_content_bene = fhoto_content_index++;
-	public static final int fhoto_content_humancinema = fhoto_content_index++;
-	public static final int fhoto_content_movie = fhoto_content_index++;
 	public static final int fhoto_content_hwasung = fhoto_content_index++;
 	public static final int fhoto_content_lifegosu = fhoto_content_index++;
 
