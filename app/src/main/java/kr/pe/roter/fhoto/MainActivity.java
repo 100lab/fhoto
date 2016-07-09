@@ -502,7 +502,7 @@ public class MainActivity extends Activity {
 							mContainer = new DefaultTextContainer();
 
 						final EditText etMessage = (EditText)linear.findViewById(R.id.d_movie01_message);
-						mContainer.setMessage(etMessage.getText().toString());
+
 						etMessage.setText(mContainer.getMessage());
 
 						AlertDialog dlg = new AlertDialog.Builder(MainActivity.this)
@@ -513,6 +513,7 @@ public class MainActivity extends Activity {
 									@Override
 									public void onClick(DialogInterface dialog, int which) {
 
+										mContainer.setMessage(etMessage.getText().toString());
 										//mGalleryAdapter.putMovie01Container(container);
 										mGalleryAdapter.putContainer(position, mContainer);
 										//mGalleryList.setAdapter(mGalleryAdapter);
